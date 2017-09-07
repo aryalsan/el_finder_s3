@@ -11,6 +11,9 @@ This is based on cdmicacc's Ruby library to provide server side ftp functionalit
 
 ## Rails 5
 
+Add gem 'el_finder_s3', github: 'aryalsan/el_finder_s3' to Gemfile
+% bundle install
+
 ```ruby
   include ElFinderS3::Action
   
