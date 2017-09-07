@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary = %q{elFinder server side connector for Ruby, with an S3 aws service.}
   spec.description = %q{Ruby gem to provide server side connector to elFinder using AWS S3 like a container}
-  spec.homepage = 'https://github.com/raulanatol/el_finder_s3'
+  spec.homepage = 'https://github.com/aryalsan/el_finder_s3'
   spec.license = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
