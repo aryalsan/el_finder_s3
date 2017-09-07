@@ -15,7 +15,7 @@ This is based on cdmicacc's Ruby library to provide server side ftp functionalit
   include ElFinderS3::Action
   
   def elfinder
-    ElFinderS3::Connector.new(
+    h, r = ElFinderS3::Connector.new(
       :mime_handler => ElFinderS3::MimeType,
       :root => '/',
       :url => 'CDN_BASE_PATH'
@@ -33,5 +33,11 @@ This is based on cdmicacc's Ruby library to provide server side ftp functionalit
         :cdn_base_path => 'CDN_BASE_PATH'
       }
     ).run(params)
+    headers.merge!(h)
+    
+    if r.empty?
+      (render :nothing => true) and return
+    end
+    render :json => r, :layout => false
   end
 ```
