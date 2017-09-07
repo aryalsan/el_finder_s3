@@ -63,6 +63,11 @@ module ElFinderS3
       end
     end
 
+    def rename(filename, to)
+      response = @s3_client.get_object(bucket: @bucket_name, key:filename)
+      @s3_client.rename(pathname, to)
+    end
+
     def mkdir(folder_name)
       begin
         @s3_client.put_object(bucket: @bucket_name, key: folder_name)
@@ -72,6 +77,11 @@ module ElFinderS3
       end
     end
 
+    def rmdir(folder_name)
+      response = @s3_client.delete_object(bucket: @bucket_name, key: folder_name)
+      return nil unless !response.nil?
+    end
+
     def touch(filename)
       begin
         @s3_client.put_object(bucket: @bucket_name, key: filename)
@@ -79,6 +89,12 @@ module ElFinderS3
       rescue
         false
       end
+    end
+
+    def rm(filename)
+      response = @s3_client.delete_object(bucket: @bucket_name, key: filename)
+      return nil unless !response.nil?
+      response.body
     end
 
     def store(filename, content)
