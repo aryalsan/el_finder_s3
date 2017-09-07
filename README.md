@@ -9,7 +9,7 @@ This is based on cdmicacc's Ruby library to provide server side ftp functionalit
 - phallstrom project: https://github.com/phallstrom/el_finder
 
 
-## Rails 4
+## Rails 5
 
 ```ruby
   include ElFinderS3::Action
